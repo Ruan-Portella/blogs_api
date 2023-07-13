@@ -1,4 +1,5 @@
 const express = require('express');
+const AuthRouter = require('./routes/authRoute');
 
 // ...
 
@@ -12,6 +13,8 @@ app.get('/', (_request, response) => {
 app.use(express.json());
 
 // ...
+
+app.use('/', AuthRouter);
 
 // É importante exportar a constante `app`,
 // para que possa ser utilizada pelo arquivo `src/server.js`
