@@ -18,4 +18,9 @@ const signUp = async (displayName, email, password, image) => {
     }
 };
 
-module.exports = { signUp };
+const getUsers = async () => {
+    const users = await User.findAll({ attributes: { exclude: ['password'] } });
+    return users;
+};
+
+module.exports = { signUp, getUsers };
