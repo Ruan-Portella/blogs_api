@@ -29,4 +29,11 @@ const getUserById = async (id) => {
         return user; 
 };
 
-module.exports = { signUp, getUsers, getUserById };
+const removeUser = async (id) => {
+        const user = await User.findByPk(id);
+        console.log('AQUI QUE ESTá O LOG ', user);
+        if (!user) return { message: 'User does not exist' };
+        await User.destroy({ where: { id } });
+};
+
+module.exports = { signUp, getUsers, getUserById, removeUser };
