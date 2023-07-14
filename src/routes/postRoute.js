@@ -5,6 +5,7 @@ const validatePostUpdated = require('../middlewares/validatePostUpdated');
 const validateToken = require('../middlewares/validateToken');
 const validateTokenCategory = require('../middlewares/validateTokenCategory');
 
+postRoute.get('/search', validateToken, postController.getPostsBySearch);
 postRoute.post('/', validateToken, validatePost, postController.createPost);
 postRoute.get('/', validateToken, postController.getPosts);
 postRoute.get('/:id', validateToken, postController.getPostsById);
